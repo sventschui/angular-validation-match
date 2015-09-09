@@ -47,7 +47,13 @@ Confirm: <input ng-model="user.passwordConfirm" type="password" match="user.pass
 Password: <input ng-model="user.password" type="password" />
 Confirm: <input ng-model="user.passwordConfirm" type="password" match="user.password" match-caseless="true" />
 ```
-<small>`match-caseless` can accept a scoped variable to allow the matching to be toggle-able between case insensitive and case sensitive.</small>
+<small>`match-caseless` and `mismatch-caseless` can accept a scoped variable to allow the matching to be toggle-able between case insensitive and case sensitive.</small>
+
+**Mismatch Simple Property Example**
+
+```html
+New E-Mail: <input ng-model="newEmail" type="text" mismatch="oldEmail" mismatch-caseless="true" />
+```
 
 **Display Custom Error**<br>
 If your form and field both are named, you can access the validation result to show/hide messages.
