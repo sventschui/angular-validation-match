@@ -65,9 +65,9 @@ function mismatch ($parse) {
             ctrl.$validators.mismatch = function(){
                 var mismatch = getMismatchValue();
                 if(caselessGetter(scope) && angular.isString(mismatch) && angular.isString(ctrl.$viewValue)){
-                    return ctrl.$viewValue.toLowerCase() === mismatch.toLowerCase();
+                    return ctrl.$viewValue.toLowerCase() !== mismatch.toLowerCase();
                 }
-                return ctrl.$viewValue === mismatch;
+                return ctrl.$viewValue !== mismatch;
             };
 
             function getMismatchValue(){
@@ -75,7 +75,7 @@ function mismatch ($parse) {
                 if(angular.isObject(mismatch) && mismatch.hasOwnProperty('$viewValue')){
                     mismatch = mismatch.$viewValue;
                 }
-                return match;
+                return mismatch;
             }
         }
     };
